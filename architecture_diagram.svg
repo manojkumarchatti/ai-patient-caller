@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1f2937"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .box { fill: #ffffff; stroke: #1f2937; stroke-width: 2; rx: 12; }
+      .accent { fill: #e0f2fe; stroke: #0369a1; stroke-width: 2; rx: 12; }
+      .green { fill: #dcfce7; stroke: #15803d; stroke-width: 2; rx: 12; }
+      .yellow { fill: #fef9c3; stroke: #a16207; stroke-width: 2; rx: 12; }
+      .pink { fill: #fce7f3; stroke: #be185d; stroke-width: 2; rx: 12; }
+      .title { font: 700 28px Arial, sans-serif; fill: #0f172a; }
+      .label { font: 700 17px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 14px Arial, sans-serif; fill: #334155; }
+      .arrow { stroke: #1f2937; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #64748b; stroke-width: 2; stroke-dasharray: 6 6; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="760"/>
+  <text class="title" x="360" y="50">AI Patient Caller Architecture</text>
+
+  <rect class="accent" x="60" y="120" width="180" height="90"/>
+  <text class="label" x="112" y="155">caller.py</text>
+  <text class="small" x="86" y="182">Starts outbound call</text>
+
+  <rect class="box" x="330" y="120" width="190" height="90"/>
+  <text class="label" x="377" y="155">Twilio API</text>
+  <text class="small" x="361" y="182">Places phone call</text>
+
+  <rect class="box" x="610" y="120" width="210" height="90"/>
+  <text class="label" x="658" y="155">Target Phone</text>
+  <text class="small" x="644" y="182">Person answers call</text>
+
+  <rect class="yellow" x="330" y="300" width="220" height="100"/>
+  <text class="label" x="378" y="335">Cloudflare</text>
+  <text class="small" x="362" y="362">Public HTTPS tunnel</text>
+  <text class="small" x="378" y="382">/voice, /respond</text>
+
+  <rect class="green" x="650" y="300" width="220" height="100"/>
+  <text class="label" x="716" y="335">app.py</text>
+  <text class="small" x="696" y="362">Flask webhook</text>
+  <text class="small" x="690" y="382">Returns TwiML</text>
+
+  <rect class="pink" x="960" y="270" width="180" height="90"/>
+  <text class="label" x="1017" y="305">OpenAI</text>
+  <text class="small" x="987" y="332">Patient response</text>
+
+  <rect class="box" x="960" y="405" width="180" height="90"/>
+  <text class="label" x="1003" y="440">scenarios.py</text>
+  <text class="small" x="995" y="467">Test scenarios</text>
+
+  <rect class="box" x="330" y="560" width="220" height="90"/>
+  <text class="label" x="371" y="595">Twilio Recording</text>
+  <text class="small" x="373" y="622">Stores call audio</text>
+
+  <rect class="accent" x="650" y="560" width="240" height="90"/>
+  <text class="label" x="684" y="595">download_recordings.py</text>
+  <text class="small" x="708" y="622">Downloads MP3 files</text>
+
+  <path class="arrow" d="M240 165 L330 165"/>
+  <path class="arrow" d="M520 165 L610 165"/>
+  <path class="arrow" d="M715 210 C715 250, 520 260, 465 300"/>
+  <path class="arrow" d="M550 350 L650 350"/>
+  <path class="arrow" d="M870 340 L960 315"/>
+  <path class="dash" d="M960 450 L870 375"/>
+  <path class="arrow" d="M960 330 L870 365"/>
+  <path class="arrow" d="M650 382 C555 455, 520 455, 440 400"/>
+  <path class="arrow" d="M440 400 C360 460, 350 520, 410 560"/>
+  <path class="arrow" d="M550 605 L650 605"/>
+
+  <text class="small" x="250" y="145">1. create call</text>
+  <text class="small" x="535" y="145">2. dial number</text>
+  <text class="small" x="555" y="276">3. fetch webhook</text>
+  <text class="small" x="565" y="335">4. forward request</text>
+  <text class="small" x="885" y="295">5. generate reply</text>
+  <text class="small" x="887" y="395">scenario + state</text>
+  <text class="small" x="505" y="455">6. Twilio speaks/listens loop</text>
+  <text class="small" x="457" y="535">7. save recording</text>
+  <text class="small" x="565" y="586">8. download MP3</text>
+</svg>
