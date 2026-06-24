@@ -134,6 +134,11 @@ Update `.env`:
 ```env
 PUBLIC_BASE_URL=https://example.trycloudflare.com
 ```
+Update `app.py`:
+
+```env
+PUBLIC_BASE_URL=https://example.trycloudflare.com
+```
 
 Restart Flask after changing `.env`.
 
